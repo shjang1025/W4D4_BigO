@@ -1,18 +1,22 @@
+require 'byebug'
 #phase1 - nested loop
 def my_min1(arr)
-    i = 0
-    while i < arr.length
-        m = 0
-        while m < arr.length
-            current_number = arr[0]
-            if arr[m] < current_number
-                current_number = arr[m]
-            end
-            m += 1
+  min = 0
+  arr.each_with_index do |n1, i1|
+    sub_min = 0
+    arr.each_with_index do |n2, i2|
+      if i1 < i2
+        if n1 < n2 
+          sub_min = n1
+        else
+          sub_min = n2
         end
-        i+= 1
+      end 
+    
     end
-    current_number
+    min = sub_min if sub_min < min
+  end
+  min
 end
 
 #phase 2- single loop
