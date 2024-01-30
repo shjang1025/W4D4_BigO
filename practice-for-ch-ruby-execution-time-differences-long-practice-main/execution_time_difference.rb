@@ -54,3 +54,18 @@ def largest_sub_sum(arr)
     max
 end
 
+def largest_sub_sum2(arr)
+  largest = -100
+  current = 0
+  arr.each do |ele|
+    current += ele
+    largest = current if current > largest
+    current = 0 if current < 0
+
+    
+  end
+  largest
+end
+
+
+
