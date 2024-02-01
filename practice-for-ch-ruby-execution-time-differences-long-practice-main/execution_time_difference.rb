@@ -1,18 +1,23 @@
 #phase1 - nested loop
 def my_min1(arr)
-    i = 0
-    while i < arr.length
-        m = 0
-        while m < arr.length
-            current_number = arr[0]
-            if arr[m] < current_number
-                current_number = arr[m]
+    min = arr.first
+    arr.each_with_index do |n1, i1|
+        sub_min = n1
+        arr.each_with_index do |n2, i2|
+            if i1 < i2
+                if n1 < n2
+                    sub_min = n1
+                else
+                    sub_min = n2
+                end
             end
-            m += 1
         end
-        i+= 1
-    end
-    current_number
+        if min > sub_min
+            min = sub_min
+        end
+    end 
+    min
+        
 end
 
 #phase 2- single loop
@@ -26,4 +31,25 @@ def my_min(arr)
     min
 end
 
-list = [ 0, 3, 5, 4, -1, -5, 10, 1, 90 ]
+
+#Largest contiguous sub-sum
+def largest_sub_sum(arr)
+    sub = []
+    arr.each_with_index do |ele1, i1|
+        arr.each_with_index do |ele2, i2|
+            if i1 == i2
+                sub << [ele1]
+            elsif i2 > i1
+                sub << arr[i1..i2]
+            end
+        end
+    end
+    max = sub[0].sum
+    sub.each do |sub_arr|
+        if sub_arr.sum > max
+            max = sub_arr.sum
+        end
+    end
+    max
+end
+
