@@ -1,4 +1,3 @@
-require 'byebug'
 #phase1 - nested loop
 def my_min1(arr)
     min = arr.first
@@ -61,8 +60,6 @@ def largest_sub_sum2(arr)
     current += ele
     largest = current if current > largest
     current = 0 if current < 0
-
-    
   end
   largest
 end
