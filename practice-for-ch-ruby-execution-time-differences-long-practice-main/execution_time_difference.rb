@@ -1,3 +1,4 @@
+require 'byebug'
 #phase1 - nested loop
 def my_min1(arr)
     min = arr.first
